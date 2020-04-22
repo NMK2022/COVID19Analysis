@@ -7,18 +7,18 @@ library(lubridate)
 deaths.cases$Date <- mdy(deaths.cases$Date)
 
 
-#Creation of a dataframe for subsetting of the data by date(March 30)
-dataframe <- subset(deaths.cases, Date > as.Date("2020-03-30"))
+#Creation of a dataframe for subsetting of the data by date(April 20)
+dataframe <- subset(deaths.cases, Date > as.Date("2020-04-19"))
 
 
 #Format USA label
 dataframe$Entity <- as.character(dataframe$Entity)
-dataframe$Entity[dataframe$Code == "USA"] <- "United States of Amerrica"
+dataframe$Entity[dataframe$Code == "USA"] <- "United States of America"
 
 
 
 # Read in excel file data
-popdata <- read.csv("WPP2019_TotalPopulationBySex.csv", stringsAsFactors = FALSE)
+popdata <- read.csv("WPP2019_TotalPopulationBySex.csv")
 
 
 #Create second data frame for population data
