@@ -34,7 +34,7 @@ dataframe_3 <- merge(dataframe1, dataframe2, by.x = c("Entity"), by.y = c("Locat
 
 
 #Now, create a data frame with column data we wish to analyze
-df4 <- dataframe_3 [, c("Entity","Total.tests","Total.confirmed.cases.of.COVID.19..cases.","PopTotal")]
+df4 <- dataframe_3 [, c("Entity","Date","Total.tests","Total.confirmed.cases.of.COVID.19..cases.","PopTotal")]
 
 
 #Combine the calculations with our dataframe we want to analyze
