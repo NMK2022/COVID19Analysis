@@ -34,7 +34,7 @@ dataframe3 <- merge(dataframe, dataframe2, by.x = c("Entity"), by.y = c("Locatio
 
 
 #Now, create a data frame with column data we wish to analyze
-df4 <- dataframe3 [, c("Entity","Total.confirmed.deaths..deaths.","Total.confirmed.cases..cases.","PopTotal")]
+df4 <- dataframe3 [, c("Entity", "Date", "Total.confirmed.deaths..deaths.","Total.confirmed.cases..cases.","PopTotal")]
 
 
 #Combine the calculations with our dataframe we want to analyze
@@ -44,3 +44,21 @@ df4$Death.Rate <- df4$Total.confirmed.deaths..deaths. / df4$Total.confirmed.case
 
 #Lastly, save your outputted data analysis as a csv
 write.csv(df4, file = "outputanalysis.csv")
+
+require(ggplot2)
+dir <- getwd()
+setwd(dir)
+
+deaths.cases <- read.csv("outputanalysis.csv", stringsAsFactors = FALSE)
+deaths.cases$Date <- as.Date(deaths.cases$Date, "%Y-%m-%d")
+deaths.cases <- subset(deaths.cases, subset = PopTotal> 60000000 & PopTotal < 350000000)
+
+png("plot-all.png")
+ggplot(data = deaths.cases, aes(Date, Death.Rate)) + geom_line(aes(group = Entity, colour = Entity))
+dev.off()
+
+
+
+
+
+
