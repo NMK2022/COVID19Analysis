@@ -7,7 +7,7 @@ library(lubridate)
 cases.tests$Date <- dmy(cases.tests$Date)
 
 
-#Creation of a dataframe for subsetting of the data by date(March 30)
+#Creation of a dataframe for subsetting of the data by date(April 20)
 dataframe1 <- subset(cases.tests, Date > as.Date("2020-03-30"))
 
 
@@ -34,14 +34,20 @@ dataframe_3 <- merge(dataframe1, dataframe2, by.x = c("Entity"), by.y = c("Locat
 
 
 #Now, create a data frame with column data we wish to analyze
-df4 <- dataframe_3 [, c("Entity", "Date", "Total.tests","Total.confirmed.cases.of.COVID.19..cases.","PopTotal")]
+df_4 <- dataframe_3 [, c("Entity", "Date", "Total.tests","Total.confirmed.cases.of.COVID.19..cases.","PopTotal", "Code")]
 
 
 #Combine the calculations with our dataframe we want to analyze
-df4$PerCapita.Testing <- df4$Total.tests / df4$PopTotal
-df4$PerCapita.Infection <- df4$Total.confirmed.cases.of.COVID.19..cases./ df4$PopTotal
-df4$COVID.Positive <- df4$Total.tests / df4$Total.confirmed.cases.of.COVID.19..cases.
+df_4$PerCapita.Testing <- df_4$Total.tests / df_4$PopTotal
+df_4$PerCapita.Infection <- df_4$Total.confirmed.cases.of.COVID.19..cases./ df_4$PopTotal
+df_4$COVID.Positive <- df_4$Total.tests / df_4$Total.confirmed.cases.of.COVID.19..cases.
 
 
 #Lastly, save your outputted data analysis as a csv
-write.csv(df4, file = "outputanalysis2.csv")
+write.csv(df_4, file = "outputanalysis2.csv")
+
+
+
+
+
+
