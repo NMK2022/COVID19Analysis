@@ -76,6 +76,8 @@ This project is ongoing and will be updated as the Covid-19 pandemic continues. 
 of March until the end of April. New data is compiled daily since I first completed it and will be updated in the future to 
 reflect this additional data. Further, this project has the potential to be expanded based on data analyzed.
 
+As of 07-27-2020: The analysis and plot of Deaths per cases has been updated to include the past three months.
+
 
 
 ### Acknowledgments
